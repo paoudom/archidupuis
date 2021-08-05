@@ -6,26 +6,26 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ path("home") }}">Accueil <span class="sr-only">(current)</span></a>
+                    <li class="nav-item {% if app.request.get('_route') == 'home' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path("home") }}">Accueil {% if app.request.get('_route') == 'home' %} <span class="sr-only">(current)</span>{% endif %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("presentation") }}">Présentation</a>
+                    <li class="nav-item {% if app.request.get('_route') == 'presentation' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path("presentation") }}">Présentation {% if app.request.get('_route') == 'presentation' %} <span class="sr-only">(current)</span>{% endif %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("portfolio") }}">Portfolio</a>
+                    <li class="nav-item {% if app.request.get('_route') == 'portfolio' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path("portfolio") }}">Portfolio {% if app.request.get('_route') == 'portfolio' %} <span class="sr-only">(current)</span>{% endif %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("expertise") }}">Expertise</a>
+                    <li class="nav-item {% if app.request.get('_route') == 'expertise' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path("expertise") }}">Expertise {% if app.request.get('_route') == 'expertise' %} <span class="sr-only">(current)</span>{% endif %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("prestataire") }}">Préstataires</a>
+                    <li class="nav-item {% if app.request.get('_route') == 'prestataire' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path("prestataire") }}">Préstataires {% if app.request.get('_route') == 'prestataire' %} <span class="sr-only">(current)</span>{% endif %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("contact") }}">Contact</a>
+                    <li class="nav-item {% if app.request.get('_route') == 'contact' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path("contact") }}">Contact {% if app.request.get('_route') == 'contact' %} <span class="sr-only">(current)</span>{% endif %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ path("liens") }}">Liens</a>
+                    <li class="nav-item {% if app.request.get('_route') == 'liens' %}active{% endif %}">
+                        <a class="nav-link" href="{{ path("liens") }}">Liens {% if app.request.get('_route') == 'liens' %} <span class="sr-only">(current)</span>{% endif %}</a>
                     </li>
 
                 </ul>

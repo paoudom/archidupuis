@@ -104,7 +104,6 @@ class HomeController extends AbstractController
     public function portfolio(ChantierRepository $repo): Response
     {
         $indiv = $repo->findType('indiv');
-        dump($indiv);
         $coll = $repo->findType('coll');
         $erp = $repo->findType('erp');
         
