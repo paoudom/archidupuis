@@ -3,10 +3,10 @@ vich_uploader:
 
     mappings:
         chantier_image:
-            uri_prefix: /images/chantier
+            uri_prefix: /chantiers/images
             upload_destination: '%kernel.project_dir%/public/chantiers/images'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
         chantier_carousel:
-            uri_prefix: /carousels/chantier
+            uri_prefix: /chantiers/carousels
             upload_destination: '%kernel.project_dir%/public/chantiers/carousels'
             namer: Vich\UploaderBundle\Naming\UniqidNamer
