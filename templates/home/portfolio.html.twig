@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+        
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid mt-5">
+    <div class="container">
+        <h1>Page des portfolio</h1>
+        <p>Controller correspondant : HomeController > portfolio</p>
+    </div>
+</div>
+
+<div class="container">
+{% for individuel in indiv %}
+    {{ individuel.titre }}
+    <img src="{{ vich_uploader_asset(individuel, 'imageFile') }}" class="img-fluid"/>
+{% endfor %}
+
+<hr />
+
+{% for collectif in coll %}
+    {{ collectif.titre }}
+    <img src="{{ vich_uploader_asset(collectif, 'imageFile') }}" class="img-fluid"/>
+{% endfor %}
+
+<hr />
+
+{% for etablissement in erp %}
+    {{ etablissement.titre }}
+    <img src="{{ vich_uploader_asset(etablissement, 'imageFile') }}" class="img-fluid"/>
+{% endfor %}
+
+<hr />
+</div>
+
+{% endblock %}

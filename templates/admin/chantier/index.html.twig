@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chantier index{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1>Chantier index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Descriptif</th>
+                <th>Archi</th>
+                <th>Created_at</th>
+                <th>Prix</th>
+                <th>Type</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for chantier in chantiers %}
+            <tr>
+                <td>{{ chantier.id }}</td>
+                <td>{{ chantier.titre }}</td>
+                <td>{{ chantier.descriptif }}</td>
+                <td>{{ chantier.archi }}</td>
+                <td>{{ chantier.createdAt ? chantier.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ chantier.prix }}</td>
+                <td>{{ chantier.type }}</td>
+                <td>
+                    <a href="{{ path('admin_chantier_show', {'id': chantier.id}) }}">show</a>
+                    <a href="{{ path('admin_chantier_edit', {'id': chantier.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_chantier_new') }}">Create new</a>
+</div>
+{% endblock %}

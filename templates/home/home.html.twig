@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}
+{% endblock %}
+
+
+        
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid mt-5">
+    <div class="container">
+    <h1>Page d'accueil</h1>
+    
+    <p>Insérer le code HTML / CSS de la page d'accueil</p>
+    <p>Controller correspondant : HomeController > home</p>
+
+    <ul class="list-unstyled">
+        <li><a href="{{ path('presentation') }}" class="btn btn-default">Présentation</a></li>
+        <li><a href="{{ path('expertise') }}" class="btn btn-default">Expertise</a></li>
+    
+    
+    </ul>
+    </div>
+</div>
+
+        
+{% endblock %}
