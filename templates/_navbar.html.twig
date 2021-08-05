@@ -29,6 +29,7 @@
                     </li>
 
                 </ul>
+                {% if is_granted('ROLE_ADMIN') %}
                 <ul class="navbar-nav mr-auto">
 
 
@@ -38,11 +39,11 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ path('admin_chantier_index') }}">Gestion des chantiers</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        <a class="dropdown-item" href="#">Gestion des utilisateurs</a>
+
                         </div>
                     </li>
                 </ul>
+                {% endif %}
             </div>
         </nav>
