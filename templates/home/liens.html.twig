@@ -10,6 +10,31 @@
         
         <p>Insérer le code HTML / CSS de la page liens</p>
         <p>Controller correspondant : HomeController > liens</p>
+
+
+        {% for lien in liens %}
+
+            <div class="card">
+            <div class="card-body">
+                
+
+                    <h5>{{ lien.titre }}</h5>
+                    <p class="text-justify">{{ lien.description }}</p>
+
+
+                    <a type="button" class="btn btn-primary btn-lg float-right" href="{{ lien.url }}" target='_blank'>Voir le site</a>
+      
+            
+            
+            </div>   
+
+
+            </div>
+            </div>
+        {% endfor %}
+
+
+
     </div>
 </div>
 

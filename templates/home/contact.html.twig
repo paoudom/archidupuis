@@ -6,11 +6,33 @@
 
 <div class="jumbotron jumbotron-fluid mt-5">
     <div class="container">
-        <h1>Page Contact</h1>
-        
-        <p>Insérer le code HTML / CSS de la page contact</p>
-        <p>Controller correspondant : HomeController > contact</p>
+
+        <div class="row">
+            <div class="col-6">
+                <h1>Page Contact</h1>
+                
+                <p>Insérer le code HTML / CSS de la page contact</p>
+                <p>Controller correspondant : HomeController > contact</p>
+                {% for message in app.flashes('notice') %}
+
+
+                    <div class="card  text-white bg-primary ">
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                        {{ message }}
+                        </blockquote>
+                    </div>
+                    </div>
+
+
+                {% endfor %}
+            </div>
+            <div class="col-6">
+                {{ include('admin/contact/_form.html.twig') }}
+            </div>
+        </div>
     </div>
+
 </div>
 
         

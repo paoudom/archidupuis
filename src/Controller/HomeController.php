@@ -4,9 +4,13 @@ namespace App\Controller;
 
 use App\Entity\Chantier;
 use App\Repository\ChantierRepository;
+use App\Entity\Contact;
+use App\Form\ContactType;
+use App\Repository\LienRepository;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
@@ -68,24 +72,37 @@ class HomeController extends AbstractController
     }
 
     /**
-     * @Route("/contact", name="contact")
+     * @Route("/contact", name="contact", methods={"GET","POST"})
      */
-    public function contact(): Response
+    public function contact(Request $request): Response
     {
-        /**
-        * Correspond à la page contact
-        * Logique pour récupérer les informations de contact par le biais d'un formulaire
-        * et d'une entité contact
-        */ 
+        $contact = new Contact();
+        $form = $this->createForm(ContactType::class, $contact);
+        $form->handleRequest($request);
 
-        return $this->render('home/contact.html.twig', [
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($contact);
+            $entityManager->flush();
+
+            $this->addFlash(
+                'notice',
+                'Votre message a été envoyé correctement, merci et à bientôt !'
+            );
+
+            return $this->redirectToRoute('contact', [], Response::HTTP_SEE_OTHER);
+        }
+
+        return $this->renderForm('home/contact.html.twig', [
+            'contact' => $contact,
+            'form' => $form,
         ]);
     }
 
     /**
      * @Route("/liens", name="liens")
      */
-    public function liens(): Response
+    public function liens(LienRepository $repo): Response
     {
         /**
         * Correspond à la page liens
@@ -94,7 +111,10 @@ class HomeController extends AbstractController
         * Ou de faire une page en dur en écrivant les liens directement dans le fichier twig
         */ 
 
+        $liens = $repo->findAll();
+
         return $this->render('home/liens.html.twig', [
+            'liens' => $liens,
         ]);
     }
 

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Lien{% endblock %}
+
+{% block body %}
+<div class="container mt-5 mb-5">
+    <h1 class="mb-3">Ajouter un lien</h1>
+
+    {{ include('admin/lien/_form.html.twig') }}
+
+    <a href="{{ path('admin_lien_index') }}">back to list</a>
+</div>
+{% endblock %}
