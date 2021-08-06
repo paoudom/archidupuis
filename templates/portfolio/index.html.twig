@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+
+        
+{% block body %}
+<div class="container mt-5 mb-5">
+
+
+<div class="row">
+
+    <div class="col-4">
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mb-2">Logements individuels</h3>
+                <div id="carouselINDIV" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% if indiv is not empty %}
+                        {% for individuel in indiv %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img class="d-block img-fluid" src="{{ vich_uploader_asset(individuel, 'imageFile') }}" alt="First slide">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="{{ asset('img_empty.gif') }}" alt="First slide">
+                        </div>
+                    {% endif %}                    
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-block btn-outline-secondary" href="{{ path('portfolio_chantiers', {type: 'indiv'}) }}">Voir les chantiers</a>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="col-4">
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mb-2">Logements collectifs</h3>
+                <div id="carouselColl" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% if coll is not empty %}
+                        {% for collectif in coll %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img class="d-block img-fluid" src="{{ vich_uploader_asset(collectif, 'imageFile') }}" alt="First slide">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="{{ asset('img_empty.gif') }}" alt="First slide">
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-block btn-outline-secondary" href="{{ path('portfolio_chantiers', {type: 'coll'}) }}">Voir les chantiers</a>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="col-4">
+
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center mb-2">ERP</h3>
+                <div id="carouselERP" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                    {% if erp is not empty %}
+                        {% for etablissement in erp %}
+                            <div class="carousel-item {% if loop.first %}active{% endif %}">
+                                <img class="d-block img-fluid" src="{{ vich_uploader_asset(etablissement, 'imageFile') }}" alt="First slide">
+                            </div>
+                        {% endfor %}
+                    {% else %}
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="{{ asset('img_empty.gif') }}" alt="First slide">
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a class="btn btn-block btn-outline-secondary" href="{{ path('portfolio_chantiers', {type: 'erp'}) }}">Voir les chantiers</a>
+            </div>
+        </div>
+        
+    </div>
+
+
+
+</div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+
+        
+{% block body %}
+<div class="container mt-5 mb-5">
+
+
+
+
+
+<div class="row">
+
+    <div class="col-8">
+        
+        <h1>{{ chantier.titre }}</h1>
+        <h5>{{ type }}</h5>
+
+        <ul class="list-unstyled">
+            <li>{{ chantier.archi }}</li>
+            <li>{{ chantier.annee }}</li>
+            <li>{{ chantier.prix }} €</li>
+        
+        </ul>
+
+        <p>{{ chantier.descriptif }}</p>
+
+    </div>
+
+    <div class="col-4">
+        <img class="img-fluid" src="{{ vich_uploader_asset(chantier, 'imageFile') }}" alt="Card image cap">
+    </div>
+
+
+</div>
+
+<hr />
+
+<div id="carouselChantierControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    {% for picture in chantier.carousel %}
+    <div class="carousel-item {% if loop.first %}active{% endif %}">
+      <img class="d-block img-fluid" src="{{ vich_uploader_asset(picture, 'imageFile') }}" alt="{{picture.filename}}">
+    </div>
+    {% endfor %}
+
+  </div>
+  <a class="carousel-control-prev" href="#carouselChantierControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselChantierControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+</div>
+{% endblock %}

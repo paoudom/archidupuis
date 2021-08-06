@@ -98,21 +98,6 @@ class HomeController extends AbstractController
         ]);
     }
 
-    /**
-    * @Route("/portfolio", name="portfolio")
-    */
-    public function portfolio(ChantierRepository $repo): Response
-    {
-        $indiv = $repo->findType('indiv');
-        $coll = $repo->findType('coll');
-        $erp = $repo->findType('erp');
-        
-
-        return $this->render('home/portfolio.html.twig', [
-            'indiv' => $indiv,
-            'coll' => $coll,
-            'erp' => $erp,
-        ]);
-    }   
+   
 
 }

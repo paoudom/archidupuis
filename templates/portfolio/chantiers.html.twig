@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+
+        
+{% block body %}
+<div class="container mt-5 mb-5">
+
+<h1 class="mb-3">{{ titre }}</h1>
+<div class="row">
+
+{% for chantier in chantiers %}
+    <div class="col-3 mb-3">
+        <div class="card text-center">
+        <img class="card-img-top" src="{{ vich_uploader_asset(chantier, 'imageFile') }}" alt="Card image cap">
+            <div class="card-footer">
+                <a class="btn btn-block btn-outline-secondary" href="{{ path('portfolio_chantier_show', {id: chantier.id}) }}">{{ chantier.titre }}</a>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+
+</div>
+
+</div>
+{% endblock %}
